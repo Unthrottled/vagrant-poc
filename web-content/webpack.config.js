@@ -36,15 +36,6 @@ module.exports = {
             ]
             },
             {
-                test: require.resolve('d3'),
-                use: [
-                    {
-                        loader: 'expose-loader',
-                        options: 'd3'
-                    }
-                ]
-            },
-            {
                 test: /\.ts$/,
                 loaders: [
                     {
@@ -56,7 +47,7 @@ module.exports = {
             {
                 test: /\.html$/,
                 loader: 'html-loader',
-                exclude: [/node_modules/, /build/, /dist/, /angular-project/, /src/, /gradle/, /app/]
+                exclude: [/node_modules/, /build/, /dist/, /gradle/, /app/]
             },
             {
                 test: /\.(html?)$/,
@@ -66,11 +57,11 @@ module.exports = {
             {
                 test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
                 loader: 'file-loader?name=assets/[name].[hash].[ext]',
-                exclude: [/node_modules/, /build/, /dist/, /angular-project/, /src/, /gradle/]
+                exclude: [/node_modules/, /build/, /dist/, /gradle/]
             },
             {
                 test: /\.css$/,
-                exclude: [/node_modules/, /build/, /dist/, /angular-project/, /src/, /gradle/],
+                exclude: [/node_modules/, /build/, /dist/, /gradle/],
                 use: ExtractTextPlugin.extract({
                     use: 'css-loader'
                 })
@@ -124,7 +115,7 @@ module.exports = {
             host: 'localhost',
             port: 3000,
             server: {baseDir: ['dist']},
-            middleware: [proxyPeel]
+            // middleware: [proxyPeel]
         })
     ]
 };

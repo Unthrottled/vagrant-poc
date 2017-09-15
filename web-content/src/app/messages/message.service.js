@@ -22,19 +22,19 @@ var MessageService = (function () {
         this.hostService = hostService;
     }
     MessageService.prototype.fetchMessages = function () {
-        var _this = this;
-        return this.sessionService.fetchSessionId()
-            .flatMap(function (sessionId) {
-            return Observable_1.Observable.create(function (observer) {
-                var eventSource = new EventSource(_this.hostService.fetchUrl() + 'hystrix/' + sessionId + '/test.stream');
-                eventSource.onmessage = function (x) {
-                    observer.next(new message_1.Message(x.data));
-                };
-                eventSource.onerror = function (x) { return observer.error(console.log('EventSource failed ' + x)); };
-                return function () {
-                };
-            });
-        });
+        // return this.sessionService.fetchSessionId()
+        //     .flatMap(sessionId => {
+        //         return Observable.create((observer: Observer<Message>) => {
+        //             let eventSource = new EventSource(this.hostService.fetchUrl() + 'hystrix/' + sessionId + '/test.stream');
+        //             eventSource.onmessage = x => {
+        //                 observer.next(new Message(x.data));
+        //             };
+        //             eventSource.onerror = x => observer.error(console.log('EventSource failed ' + x));
+        //             return () => {
+        //             };
+        //         });
+        //     });
+        return Observable_1.Observable.interval(200).lift(function (i) { return new message_1.Message("Message " + i); });
     };
     return MessageService;
 }());

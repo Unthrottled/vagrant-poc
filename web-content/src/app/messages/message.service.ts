@@ -6,6 +6,7 @@ import {HostService} from '../session/host.service';
 import {Observer} from 'rxjs/Observer';
 import 'rxjs/add/operator/mergeMap';
 import {Message} from './message';
+import {Scheduler} from "rxjs/Rx";
 
 @Injectable()
 export class MessageService {
@@ -13,17 +14,18 @@ export class MessageService {
     }
 
     fetchMessages(): Observable<Message> {
-        return this.sessionService.fetchSessionId()
-            .flatMap(sessionId => {
-                return Observable.create((observer: Observer<Message>) => {
-                    let eventSource = new EventSource(this.hostService.fetchUrl() + 'hystrix/' + sessionId + '/test.stream');
-                    eventSource.onmessage = x => {
-                        observer.next(new Message(x.data));
-                    };
-                    eventSource.onerror = x => observer.error(console.log('EventSource failed ' + x));
-                    return () => {
-                    };
-                });
-            });
+        // return this.sessionService.fetchSessionId()
+        //     .flatMap(sessionId => {
+        //         return Observable.create((observer: Observer<Message>) => {
+        //             let eventSource = new EventSource(this.hostService.fetchUrl() + 'hystrix/' + sessionId + '/test.stream');
+        //             eventSource.onmessage = x => {
+        //                 observer.next(new Message(x.data));
+        //             };
+        //             eventSource.onerror = x => observer.error(console.log('EventSource failed ' + x));
+        //             return () => {
+        //             };
+        //         });
+        //     });
+        return Observable.interval(200).lift((i: Number)=> new Message("Message " + i));
     }
 }

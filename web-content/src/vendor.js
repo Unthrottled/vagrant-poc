@@ -17,5 +17,4 @@ require("rxjs");
 // Other vendors for example jQuery, Lodash or Bootstrap
 // You can import js, ts, css, sass, ...
 require("jquery");
-require("angular2-ui-switch");
 //# sourceMappingURL=vendor.js.map
