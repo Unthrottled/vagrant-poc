@@ -9,6 +9,7 @@ import {MessageComponent} from "./messages/message.component";
 import {HostService} from "./session/host.service";
 import {SessionService} from "./session/session.service";
 import {MessageService} from "./messages/message.service";
+import {WindowRef} from "./util/window";
 
 const appRoutes = [
   {path: '', component: MessageComponent},
@@ -32,7 +33,7 @@ const appRoutes = [
     MessageComponent
   ],
   bootstrap: [AppComponent],
-  providers: [HostService, SessionService, MessageService]
+  providers: [HostService, SessionService, MessageService, WindowRef]
 })
 export class AppModule {
 }
