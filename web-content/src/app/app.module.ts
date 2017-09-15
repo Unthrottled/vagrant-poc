@@ -5,7 +5,6 @@ import {RouterModule} from "@angular/router";
 
 import {AppComponent} from "./app.component";
 import {HttpModule} from "@angular/http";
-import {UiSwitchModule} from "angular2-ui-switch";
 import {MessageComponent} from "./messages/message.component";
 import {SwitchComponent} from "./switch/switch.component";
 import {HostService} from "./session/host.service";
@@ -18,9 +17,7 @@ import {LoginComponent} from "./auth/login.component";
 import {BaseComponent} from "./base.component";
 
 const appRoutes = [
-  {path: '', component: BaseComponent, canActivate: [AuthGuard]},
-  {path: 'butt', component: MessageComponent, canActivate: [AuthGuard]},
-  {path: 'login', component: LoginComponent}
+  {path: '', component: MessageComponent},
 ];
 
 
@@ -29,7 +26,6 @@ const appRoutes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    UiSwitchModule,
     RouterModule.forRoot(
       appRoutes
     )
