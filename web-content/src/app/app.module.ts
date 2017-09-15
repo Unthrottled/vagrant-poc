@@ -10,9 +10,6 @@ import {HostService} from "./session/host.service";
 import {SessionService} from "./session/session.service";
 import {MessageService} from "./messages/message.service";
 import {WindowRef} from "./util/window";
-import {AuthService} from "./auth/auth.service";
-import {AuthGuard} from "./auth/auth.guard";
-import {LoginComponent} from "./auth/login.component";
 import {BaseComponent} from "./base.component";
 
 const appRoutes = [
@@ -35,11 +32,10 @@ const appRoutes = [
   declarations: [
     AppComponent,
     MessageComponent,
-    BaseComponent,
-    LoginComponent
+    BaseComponent
   ],
   bootstrap: [AppComponent],
-  providers: [HostService, SessionService, MessageService, WindowRef, AuthService, AuthGuard]
+  providers: [HostService, SessionService, MessageService, WindowRef]
 })
 export class AppModule {
 }
