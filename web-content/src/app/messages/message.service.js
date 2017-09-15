@@ -34,7 +34,7 @@ var MessageService = (function () {
         //             };
         //         });
         //     });
-        return Observable_1.Observable.interval(200).lift(function (i) { return new message_1.Message("Message " + i); });
+        return Observable_1.Observable.interval(200).map(function (i) { return new message_1.Message("Message " + i + " Succeeded"); });
     };
     return MessageService;
 }());

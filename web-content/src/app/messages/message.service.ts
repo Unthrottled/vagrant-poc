@@ -26,6 +26,6 @@ export class MessageService {
         //             };
         //         });
         //     });
-        return Observable.interval(200).lift((i: Number)=> new Message("Message " + i));
+        return Observable.interval(200).map((i: Number)=> new Message("Message " + i + " Succeeded"));
     }
 }

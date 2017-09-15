@@ -17,9 +17,6 @@ var host_service_1 = require("./session/host.service");
 var session_service_1 = require("./session/session.service");
 var message_service_1 = require("./messages/message.service");
 var window_1 = require("./util/window");
-var appRoutes = [
-    { path: '', component: message_component_1.MessageComponent },
-];
 var AppModule = (function () {
     function AppModule() {
     }
@@ -30,8 +27,7 @@ AppModule = __decorate([
         imports: [
             platform_browser_1.BrowserModule,
             forms_1.FormsModule,
-            http_1.HttpModule,
-            router_1.RouterModule.forRoot(appRoutes)
+            http_1.HttpModule
         ],
         exports: [
             router_1.RouterModule

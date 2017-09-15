@@ -11,19 +11,12 @@ import {SessionService} from "./session/session.service";
 import {MessageService} from "./messages/message.service";
 import {WindowRef} from "./util/window";
 
-const appRoutes = [
-  {path: '', component: MessageComponent},
-];
-
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
-    RouterModule.forRoot(
-      appRoutes
-    )
+    HttpModule
   ],
   exports: [
     RouterModule

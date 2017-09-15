@@ -5,6 +5,7 @@
 import {Component, NgZone, OnInit} from '@angular/core';
 import {MessageService} from './message.service';
 import {Message} from './message';
+
 @Component({
     selector: 'message-ticker',
     template: `      
@@ -16,7 +17,7 @@ import {Message} from './message';
     `
 })
 export class MessageComponent implements OnInit {
-    public messages: Message[] = [new Message("success: aoeuaoeuaoeu")];
+    public messages: Message[] = [];
 
     constructor(private messageService: MessageService, private zone: NgZone) {
     }
