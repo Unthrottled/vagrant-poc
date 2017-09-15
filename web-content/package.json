@@ -57,9 +57,7 @@
     "html-webpack-plugin": "^2.28.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "angular2-template-loader": "^0.6.2",
-    "zone.js": "^0.8.4",
-    "angular2-ui-switch": "^1.2.0",
-    "bootstrap": "^4.0.0-beta"
+    "zone.js": "^0.8.4"
   },
   "devDependencies": {
     "@types/angular": "^1.5.16",
