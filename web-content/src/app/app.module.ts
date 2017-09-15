@@ -6,7 +6,6 @@ import {RouterModule} from "@angular/router";
 import {AppComponent} from "./app.component";
 import {HttpModule} from "@angular/http";
 import {MessageComponent} from "./messages/message.component";
-import {SwitchComponent} from "./switch/switch.component";
 import {HostService} from "./session/host.service";
 import {SessionService} from "./session/session.service";
 import {MessageService} from "./messages/message.service";
@@ -36,8 +35,6 @@ const appRoutes = [
   declarations: [
     AppComponent,
     MessageComponent,
-    SwitchComponent
-    ,
     BaseComponent,
     LoginComponent
   ],
