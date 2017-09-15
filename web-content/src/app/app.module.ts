@@ -10,7 +10,6 @@ import {HostService} from "./session/host.service";
 import {SessionService} from "./session/session.service";
 import {MessageService} from "./messages/message.service";
 import {WindowRef} from "./util/window";
-import {BaseComponent} from "./base.component";
 
 const appRoutes = [
   {path: '', component: MessageComponent},
@@ -31,8 +30,7 @@ const appRoutes = [
   ],
   declarations: [
     AppComponent,
-    MessageComponent,
-    BaseComponent
+    MessageComponent
   ],
   bootstrap: [AppComponent],
   providers: [HostService, SessionService, MessageService, WindowRef]
