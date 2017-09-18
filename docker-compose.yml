@@ -5,10 +5,10 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - "/home/alex/workspace/vagrant-poc/web-content:/app"
+      - ./web-content:/app
     entrypoint:
       - npm
       - run
       - watch
   web-service:
-    image: alexsimons/vagrant-poc
+    build: ./web-service

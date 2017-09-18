@@ -15,6 +15,6 @@ public class ApiModule {
     @NoCache
     @Produces("application/json")
     public String getMessage(){
-        return "@ " + Instant.now() + " Vagrant and Docker are AWESOME!\n";
+        return "@ " + Instant.now() + " Docker is AWESOME!\n";
     }
 }
