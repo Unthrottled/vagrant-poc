@@ -11,7 +11,7 @@ var Message = (function () {
         this.success = Message.didSucced(this.message);
     }
     Message.didSucced = function (msg) {
-        return msg.indexOf('AWESOME') >= 0;
+        return msg.indexOf('Docker') >= 0;
     };
     Message.prototype.getMessage = function () {
         return this.message;

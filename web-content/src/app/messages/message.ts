@@ -6,7 +6,7 @@ export class Message {
     private success: Boolean = false;
 
     private static didSucced(msg: String): Boolean {
-        return msg.indexOf('AWESOME') >= 0;
+        return msg.indexOf('Docker') >= 0;
     }
 
     constructor(private msg: String) {
