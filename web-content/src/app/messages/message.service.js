@@ -23,7 +23,7 @@ var MessageService = (function () {
     }
     MessageService.prototype.fetchMessages = function () {
         var _this = this;
-        return Observable_1.Observable.interval(200)
+        return Observable_1.Observable.interval(500)
             .flatMap(function (i) { return _this.http.get(_this.hostService.fetchUrl() + "vagrant-poc/api"); })
             .map(function (response) { return new message_1.Message(response.text()); });
     };

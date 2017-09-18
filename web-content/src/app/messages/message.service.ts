@@ -12,7 +12,7 @@ export class MessageService {
     }
 
     fetchMessages(): Observable<Message> {
-        return Observable.interval(200)
+        return Observable.interval(500)
             .flatMap(i => this.http.get(this.hostService.fetchUrl() + "vagrant-poc/api"))
             .map((response: Response) => new Message(response.text()));
     }
