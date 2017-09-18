@@ -46,6 +46,6 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>startup-enterprise-cdi</finalName>
+    <finalName>vagrant-poc</finalName>
   </build>
 </project>
