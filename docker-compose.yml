@@ -1,0 +1,14 @@
+version: "3"
+services:
+  web-content:
+    image: alexsimons/gulp
+    ports:
+      - "3000:3000"
+    volumes:
+      - "/home/alex/workspace/vagrant-poc/web-content:/app"
+    entrypoint:
+      - npm
+      - run
+      - watch
+  web-service:
+    image: alexsimons/vagrant-poc

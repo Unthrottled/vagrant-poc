@@ -8,8 +8,8 @@ var proxy = require('http-proxy-middleware');
 var http = require('http');
 var keepAliveAgent = new http.Agent({ keepAlive: true });
 
-var proxyPeel = proxy('/', {
-    target: 'http://localhost:8080',
+var proxyPeel = proxy('/vagrant-poc', {
+    target: 'http://web-service:8080/',
     changeOrigin: true,               // needed for virtual hosted sites
     ws: true,
     agent: keepAliveAgent
@@ -115,7 +115,7 @@ module.exports = {
             host: 'localhost',
             port: 3000,
             server: {baseDir: ['dist']},
-            // middleware: [proxyPeel]
+            middleware: [proxyPeel]
         })
     ]
 };
