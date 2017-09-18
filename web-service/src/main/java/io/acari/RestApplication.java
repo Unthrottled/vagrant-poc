@@ -1,16 +1,9 @@
 package io.acari;
 
 import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import java.time.Instant;
+import javax.ws.rs.core.Application;
 
 @ApplicationPath("")
-public class RestApplication {
+public class RestApplication extends Application {
 
-    @Path("")
-    @GET
-    public String getMessage(){
-        return "@ " + Instant.now() + " Vagrant is AWESOME!\n";
-    }
 }
