@@ -25,7 +25,7 @@ var MessageService = (function () {
         var _this = this;
         return Observable_1.Observable.interval(200)
             .flatMap(function (i) { return _this.http.get(_this.hostService.fetchUrl() + "vagrant-poc/api"); })
-            .map(function (response) { return new message_1.Message(response.json()); });
+            .map(function (response) { return new message_1.Message(response.text()); });
     };
     return MessageService;
 }());
