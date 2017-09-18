@@ -7,25 +7,16 @@ import {Observer} from 'rxjs/Observer';
 import 'rxjs/add/operator/mergeMap';
 import {Message} from './message';
 import {Scheduler} from "rxjs/Rx";
+import {Http, Response} from "@angular/http";
 
 @Injectable()
 export class MessageService {
-    constructor(private sessionService: SessionService, private hostService: HostService) {
+    constructor(private http: Http, private hostService: HostService) {
     }
 
     fetchMessages(): Observable<Message> {
-        // return this.sessionService.fetchSessionId()
-        //     .flatMap(sessionId => {
-        //         return Observable.create((observer: Observer<Message>) => {
-        //             let eventSource = new EventSource(this.hostService.fetchUrl() + 'hystrix/' + sessionId + '/test.stream');
-        //             eventSource.onmessage = x => {
-        //                 observer.next(new Message(x.data));
-        //             };
-        //             eventSource.onerror = x => observer.error(console.log('EventSource failed ' + x));
-        //             return () => {
-        //             };
-        //         });
-        //     });
-        return Observable.interval(200).map((i: Number)=> new Message("Message " + i + " Succeeded"));
+        return Observable.interval(200)
+            .flatMap(i=>this.http.get(this.hostService.fetchUrl() + "vagrant-poc/api"))
+            .map((response: Response)=> new Message(response.json()));
     }
 }

@@ -11,36 +11,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /// <reference path="../util/EventSource.d.ts"/>
 var core_1 = require("@angular/core");
-var session_service_1 = require("../session/session.service");
 var Observable_1 = require("rxjs/Observable");
 var host_service_1 = require("../session/host.service");
 require("rxjs/add/operator/mergeMap");
 var message_1 = require("./message");
+var http_1 = require("@angular/http");
 var MessageService = (function () {
-    function MessageService(sessionService, hostService) {
-        this.sessionService = sessionService;
+    function MessageService(http, hostService) {
+        this.http = http;
         this.hostService = hostService;
     }
     MessageService.prototype.fetchMessages = function () {
-        // return this.sessionService.fetchSessionId()
-        //     .flatMap(sessionId => {
-        //         return Observable.create((observer: Observer<Message>) => {
-        //             let eventSource = new EventSource(this.hostService.fetchUrl() + 'hystrix/' + sessionId + '/test.stream');
-        //             eventSource.onmessage = x => {
-        //                 observer.next(new Message(x.data));
-        //             };
-        //             eventSource.onerror = x => observer.error(console.log('EventSource failed ' + x));
-        //             return () => {
-        //             };
-        //         });
-        //     });
-        return Observable_1.Observable.interval(200).map(function (i) { return new message_1.Message("Message " + i + " Succeeded"); });
+        var _this = this;
+        return Observable_1.Observable.interval(200)
+            .flatMap(function (i) { return _this.http.get(_this.hostService.fetchUrl() + "vagrant-poc/api"); })
+            .map(function (response) { return new message_1.Message(response.json()); });
     };
     return MessageService;
 }());
 MessageService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [session_service_1.SessionService, host_service_1.HostService])
+    __metadata("design:paramtypes", [http_1.Http, host_service_1.HostService])
 ], MessageService);
 exports.MessageService = MessageService;
 //# sourceMappingURL=message.service.js.map
