@@ -2,6 +2,7 @@ version: "3"
 services:
   web-content:
     build: ./web-content
+    image: alexsimons/web-content
     ports:
       - "3000:3000"
     volumes:
@@ -12,3 +13,4 @@ services:
       - watch
   web-service:
     build: ./web-service
+    image: alexsimons/web-service
